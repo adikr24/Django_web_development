@@ -1,0 +1,30 @@
+
+
+.backgroundColor {
+        background-color: #C0C0C0;
+        color: #C0C0C0;
+    }
+
+#square_fs{
+	width: 100px;
+	background-color: red;
+	height: 100px;
+	margin:20px;
+	border:10px black solid;
+}
+
+.input{
+			width: 100px;
+			background-color: red;
+			height: 100px;
+			margin:20px;
+			border:10px black solid;
+		}
+
+.navbar{
+	border-radius: 0;
+}
+
+.navbar-brand{
+	font-family: 'Satisfy', cursive;
+}

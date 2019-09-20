@@ -1,0 +1,42 @@
+
+<!-- 
+{{ album.artist }}
+<ul>
+{% for song in album.song_set.all %}
+
+<li>{{ song }}</li>
+{% endfor %}
+</ul>
+ -->
+
+<!--load a css file in django 
+{% load staticfiles %}
+<link rel= "stylesheet" type = "text/css" href= "{% static 'music/style.css' %}" />
+## use google fonts
+ -->
+
+
+
+{% if error_message %}
+<p>{{ error_message }}</p>
+{% endif %}
+
+
+<form action="{% url 'music:favorite' album.id %}" method="post">
+	{% csrf_token %}
+	{{ album.artist }}<br><br>
+	{% for song in album.song_set.all %}
+		<input type="radio" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}">
+		<label for ="song{{ forloop.counter }}">
+			{{ song.song_name }}
+			{% if song.is_favorite %}
+			<img src="file:///C:/Users/adity/Desktop/python_dev/macro-gold-christmas-star-isolated-260nw-741321604.webp">
+			{% endif %}
+		</label><br>
+	{% endfor %}<br><br>
+	<input type="submit" name="Favorite">
+
+</form>
+
+
+
