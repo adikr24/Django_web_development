@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Speech Recording</title>
+</head>
+
+
+<style type="text/css">
+    #form_fill{
+        height: 100px;
+        width: 200px;
+    }
+</style>
+
+Voice Command Activated 
+
+
+
+
+
+<br><br>
+<button onclick= "start_rec()"> recording !! </button>
+<br><br>
+<button  id = "stop_rec"> stop_recording </button>
+
+<p id = "show_text"></p>	
+<p id = "show_all_convo"></p>
+<br><br>
+<button id="clear_last">Delete Last Chat!! </button>
+<br><br>
+<button id= "show_conv"> Show convo !! </button>
+
+
+<form action ='/speech_save/' method="POST" > 
+<br><br>
+<input type="text" name="fname", id ="fname"> ENTER YOUR ECI_ID 
+<br><br>
+<input type="text" name="lang" id= "form_fill">
+<br><br>
+<button> SUBMIT_TEXT</button>
+<br><br>
+</form>
+
+
+
+
+<body>
+	<script type="text/javascript">
+	
+    function subMi(){
+		document.getElementById('demo').innerHTML =  Date()}
+	
+	var arr1 = []
+    var store= []
+	function start_rec(){
+	window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+    let finalTranscript = '';
+    let recognition = new window.SpeechRecognition();
+    recognition.interimResults = true;
+    recognition.maxAlternatives = 10;
+    recognition.continuous = true;
+    recognition.onresult = (event) => {
+      let interimTranscript = '';
+      for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
+        let transcript = event.results[i][0].transcript;
+        if (event.results[i].isFinal) {
+          finalTranscript += transcript;
+        } else {
+          interimTranscript += transcript;
+        }
+      }
+    arr1.push(finalTranscript)
+    document.getElementById('show_text').innerHTML = finalTranscript + '<i style="color:#ddd;">' + interimTranscript + '</>';
+    }
+    recognition.start();
+    document.getElementById("stop_rec").onclick=function(){
+    	recognition.stop()
+    	var store_data =[]
+    	store_data = arr1[arr1.length-1]
+    	store.push(store_data)
+    	console.log(store)
+    	console.log("stopped")
+    	//document.getElementById("show_all_convo").innerHTML = store   
+    document.getElementById("clear_last").onclick=function(){
+        store.pop()
+        }
+    }
+
+    document.getElementById("show_conv").onclick= function(){
+        document.getElementById("form_fill").value = store
+        document.getElementById("show_all_convo").innerHTML = store
+        
+    }
+
+}
+
+  
+
+
+	</script>
+	</body>
+	</html>
