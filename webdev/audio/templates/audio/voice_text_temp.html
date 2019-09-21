@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  {% load staticfiles %}
+    <link rel= "stylesheet" type = "text/css" href= "{% static 'audio/css/voice_text_temp.css' %}" />
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Speech Recording</title>
+    <!--<link href="css/voice_text_temp.css" rel="stylesheet" type="text/css"> -->
 </head>
+
+
 
 
 <style type="text/css">
@@ -13,41 +22,29 @@
         height: 100px;
         width: 200px;
     }
+    .list-img {
+    top: -193px;
+    position: relative;
+}
+  .show-text {
+      text-align: center;
+      font-size: 44px;
+      font-style: italic;
+      position: relative;
+      bottom: 355px;
+  }
+
+  .speech-form {
+      position: relative;
+      bottom: 270px;
+  }
+
+
+
 </style>
 
-Voice Command Activated 
-
-
-
-
-
-<br><br>
-<button onclick= "start_rec()"> recording !! </button>
-<br><br>
-<button  id = "stop_rec"> stop_recording </button>
-
-<p id = "show_text"></p>	
-<p id = "show_all_convo"></p>
-<br><br>
-<button id="clear_last">Delete Last Chat!! </button>
-<br><br>
-<button id= "show_conv"> Show convo !! </button>
-
-
-<form action ='/speech_save/' method="POST" > 
-<br><br>
-<input type="text" name="fname", id ="fname"> ENTER YOUR ECI_ID 
-<br><br>
-<input type="text" name="lang" id= "form_fill">
-<br><br>
-<button> SUBMIT_TEXT</button>
-<br><br>
-</form>
-
-
-
-
 <body>
+  
 	<script type="text/javascript">
 	
     function subMi(){
@@ -88,18 +85,84 @@ Voice Command Activated
         store.pop()
         }
     }
-
     document.getElementById("show_conv").onclick= function(){
         document.getElementById("form_fill").value = store
         document.getElementById("show_all_convo").innerHTML = store
-        
     }
 
 }
+</script>
+  Voice Command Activated 
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-6 list-img">
+              {% load static %}
+              <img src="{% static "audio/images/micro.gif" %}" alt="My image">
 
-  
+            <img src="images/micro.gif" alt="Listening">
+        </div>
+
+        <div class="col-xs-6">
+            <img src="images/stop.png" alt="Listening">
+        </div>
+    </div>
+    <div class="row show-text" id = "show_text">
+        Hey! How is your doing. Welcome to SDLC Hackathon H2
+    </div>
+    <form class="speech-form">
+        <div class="form-group row">
+            <label for="textInput" class="col-sm-2 col-form-label">Your Speech</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="textInput" placeholder="Enter your EC-ID here">
+            </div>
+          </div>
+          
+        <div class="form-group row">
+          <label for="ecidInput" class="col-sm-2 col-form-label">Ec-ID</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="ecidInput" placeholder="Enter your EC-ID here">
+          </div>
+        </div>
+       
+          <div class="form-group row">
+            <button type="submit" class="btn btn-primary">Submit Text</button>
+          </div>
+        </div>
+      </form>
+
+  </div>
+ 
 
 
-	</script>
-	</body>
+
+<br><br>
+<p>Added a listening button</p>
+
+<button onclick= "start_rec()"> recording !! </button>
+<br><br>
+<button  id = "stop_rec"> stop_recording </button>
+
+<!--<p id = "show_text"></p>	-->
+<p id = "show_all_convo"></p>
+<br><br>
+<button id="clear_last">Delete Last Chat!! </button>
+<br><br>
+<button id= "show_conv"> Show convo !! </button>
+
+
+<form action ='/speech_save/' method="POST" > 
+<br><br>
+<input type="text" name="fname", id ="fname"> ENTER YOUR ECI_ID 
+<br><br>
+<input type="text" name="lang" id= "form_fill">
+<br><br>
+<button> SUBMIT_TEXT</button>
+<br><br>
+</form>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
 	</html>

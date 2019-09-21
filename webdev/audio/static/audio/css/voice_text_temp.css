@@ -1,0 +1,18 @@
+.list-img {
+    top: -193px;
+    position: relative;
+}
+.show-text {
+    text-align: center;
+    font-size: 44px;
+    font-style: italic;
+    position: relative;
+    bottom: 355px;
+}
+
+.speech-form {
+    position: relative;
+    bottom: 270px;
+}
+
+
