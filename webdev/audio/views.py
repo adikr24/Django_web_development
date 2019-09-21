@@ -7,6 +7,10 @@ from django.template.loader import get_template
 from django.views.decorators.csrf import csrf_exempt
 from audio.models import db_design, speech , store_syn
 from django.utils.decorators import method_decorator
+from audio.python_codes import algo, clean_up
+from audio.python_codes.algo import rec_speech
+from audio.python_codes.clean_up import text_clean
+
 
 # Create your views here.
 
@@ -101,27 +105,22 @@ def save_speech(request):
 			post.voice_to_text= request.POST.get('lang')
 			post.save()
 			m_return = request.POST.get("lang")
-			context = {'vtt' : m_return}
+			####### 			
+			### symptoms
+			my_sentence = request.POST.get("lang")
+			eci = '100011'
+			s1,s2,s3,s4,s5=text_clean(my_sentence).clean_words()
+			aa= rec_speech(eci, s1, s2, s3, s4, s5).SVM_make()
+			
+
+			context = {'vtt' : m_return,
+						's1':  s1,
+						's2':  s2,
+						's3' : s3,
+						's4' : s4,
+						's5' : s5,
+						'disease': aa }
 			return render_to_response('audio/speech_save.html',  context)
 		else:
 			return render_to_response('audio/speech_save.html')
-
-
-# @method_decorator(csrf_exempt, name='dispatch')
-# @csrf_exempt
-# def voice_text(request):
-# 	if request.method =='POST':
-# 		if request.POST.get('fname') and request.POST.get('lname'):
-# 			post= db_design()
-# 			post.first_name = request.POST.get('fname')
-# 			post.last_name = request.POST.get('lname')
-# 			fname = request.POST.get('fname')
-# 			lname = request.POST.get('lname')
-# 			context = {'first_name' : fname , 'last_name' : lname}
-# 			post.save()
-# 			return render(request, 'audio/disp_speech.html', context)
-# 		else:
-# 			return render(request, 'audio/disp_speech.html', context)
-
-
 
