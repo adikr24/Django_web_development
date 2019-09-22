@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Speech Recording</title>
+    <style>
+    .container{
+        padding: 3%;
+        border:3px solid;
+        color:powderblue;
+    }
+
+    .legend_border {
+        border-bottom: 2px solid powderblue;
+    }
+
+    output {
+        font-size: 16px;
+        font-family: courier;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <fieldset>
+                <legend class="legend_border">Patient Information</legend>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <output name="pname"> Patient Name</output>
+                    </div>
+                    <div class="col-sm-8">
+                        <output name="pname_v"> Jon Brown</output>
+                    </div>  
+                </div>
+                <div class="row">
+                <div class="col-sm-4">
+                    <output name="pdob"> Date of Birth</output>
+                </div>
+                <div class="col-sm-8">
+                    <output name="pdob_v"> Sept 10 1980</output>
+                </div>  
+                </div>
+            </fieldset>                
+        </div>    
+        <br>
+        <div class="row">
+            <fieldset>
+                <legend class="legend_border">Progress Notes</legend>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <output name="note"> This is patient note1. this is again another patient note. this is the last one.</output>
+                    </div>  
+                </div>                
+            </fieldset>                
+        </div>    
+        <br>
+        <div class="row">
+            <fieldset>
+                <legend class="legend_border">Current Medication</legend>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <output name="cmedication"> Medicine xyz</output>
+                    </div>  
+                </div>                
+            </fieldset>                
+        </div> 
+        <br>
+        <div class="row">
+            <fieldset>
+                <legend class="legend_border">Past Medication</legend>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <output name="pmedication"> Medicine xyz</output>
+                    </div>  
+                </div>                
+            </fieldset>                
+        </div> 
+        <br>
+        <div class="row">
+            <fieldset>
+                <legend class="legend_border">Family History</legend>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <output name="fhistory"> Medicine xyz</output>
+                    </div>  
+                </div>                
+            </fieldset>                
+        </div> 
+        <br>
+        <div class="row">
+            <fieldset>
+                <legend class="legend_border">Daily Log</legend>
+               <div class="row">
+                    <div class="col-sm-4">
+                        <output name="dlog"> Medicine xyz</output>
+                    </div>  
+                </div>                
+           </fieldset>                
+        </div> 
+
+    </div>
+      
+</body>
+</html>

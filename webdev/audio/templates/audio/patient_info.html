@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	Intro Form I</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style>
+		.container {
+			padding: 3%;
+			margin-top: 4%;
+			border:3px solid powderblue;
+			font-size: 16px;
+		}
+		.row {
+			padding-bottom: 15px;
+		}
+
+		.legend_border {
+       		border-bottom: 2px solid powderblue;
+    	}
+		input {
+			font-size: 16px;
+			font-family: courier;
+			background-color:aliceblue;
+		}
+
+		button {
+			font-size: 18px;
+			background-color:powderblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form action ='/show_pat_data/' method="GET" >	
+		<fieldset>
+			<legend class="legend_border">Enter Patient Details</legend>		
+		<div class="row" style="margin-top:30px">
+			<div class="col-sm-4">Enter your First Name</div>
+			<div class="col-sm-8">
+					<input type="text" name="fname" >
+			</div>		
+		</div>
+
+		<div class="row">
+			<div class="col-sm-4">Enter your Last Name</div>
+			<div class="col-sm-8">
+					<input type="text" name="lname" >
+			</div>		
+		</div>
+
+		<div class="row">
+			<div class="col-sm-4">Enter patient's ECI ID</div>
+			<div class="col-sm-8">
+					<input type = "text" name = "eci_id">
+			</div>		
+		</div>
+
+		<div class="row text-center" style="margin-top:50px">
+			<button id = 'sub'>SUBMIT</button>
+		</div>
+		</fieldset>
+		</form>
+	</div>
+</body>
+
+</html>

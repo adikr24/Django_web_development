@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello Pat</title>
+</head>
+<body>
+
+Hello Doctor {{ fname }} 
+<br><br>
+Your Patient eci id <b> {{ eci_id }}</b>
+{{ last_val }}
+<br><br>
+
+
+
+Number of times Patient logged in so Far <b> {{ time_logged }} </b>
+<br><br>
+Most frequent symtom found by our algo was  <b>{{ most_frequent_symptom }}</b>
+<br><br>
+Ailment Predicted by us was <ul style="display: none;" id= "ail_list"> {{ ailment }} </ul>
+<br><br>
+Number of Severe flags  <b> {{ sev_times }} </b>
+<br><br>
+Number of Non Severe Flags <b> {{ non_sev_times }} </b>
+
+<script>
+	window.addEventListener('load', function() {
+		document.getElementById("ail_list").style.display='block';
+    	var ulnode = document.getElementById("ail_list");
+    	var value = document.getElementById("ail_list").innerHTML;
+    	var values=value.split("1");
+    	var val2 = values[0].substring(1);
+    
+
+    	var liNode1=document.createElement("LI");
+    	var liNode2=document.createElement("LI");
+    	console.log(values[0]);
+    	console.log(val2[1]);
+    	liNode1.innerHTML=values[0];
+    	liNode2.innerHTML=val2[1];
+
+    	
+    	ulnode.appendChild(liNode1);
+    	ulnode.appendChild(liNode2);
+    	
+
+    	console.log(value);
+
+  }, false);
+
+</script>
+
+</body>
+</html>

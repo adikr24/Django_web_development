@@ -35,6 +35,8 @@ urlpatterns = [
    url(r'^speak/$', views.sample_voice),
    url(r'^show_speech/$', views.display_speech),
    url(r'^speech_save/$', views.save_speech),
+   url(r'^doctor_dash/$', views.doctors_view),
+   url(r'^show_pat_data/$',views.pat_data),
 
 
 ]
